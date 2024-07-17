@@ -19,6 +19,8 @@ ignition/deployments/chain-31337
 .env
 .env.test
 .env.local
+constants/network.ts
+
 
 # Lock files
 package-lock.json

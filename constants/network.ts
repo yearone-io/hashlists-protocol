@@ -25,3 +25,4 @@ export const getNetworkAccountsConfig = (name: string) => {
       throw new Error(`Unknown network ${name}`);
   }
 };
+.
