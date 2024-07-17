@@ -8,7 +8,7 @@ import { getNetworkAccountsConfig } from "./constants/network";
 dotenv.config();
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.4",
+    solidity: "0.8.12",
     // public LUKSO Testnet
     networks: {
       luksoTestnet: {
