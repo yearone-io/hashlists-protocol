@@ -1,0 +1,34 @@
+import { Network } from "./networkInterface";
+
+const NETWORKS = {
+  luksoMain: {
+      EOA_PRIVATE_KEY: "",
+      EOA_PUBLIC_KEY: "",
+      UP_ADDR_CONTROLLED_BY_EOA: "",
+  },
+  luksoTestnet: {
+      EOA_PRIVATE_KEY: "",
+      EOA_PUBLIC_KEY: "",
+      UP_ADDR_CONTROLLED_BY_EOA: "",
+  },
+  luksoDevnet: {
+      EOA_PRIVATE_KEY: "9d0646e110ac490fd46d89b6518a01d16fd94ace6c36d7e651720c587c19b180",
+      EOA_PUBLIC_KEY: "0xF1258b31ADaf74F0886E0952BD50C78DF70a54AD",
+      UP_ADDR_CONTROLLED_BY_EOA: "",
+  },
+} as {
+  [key: string]: Network;
+};
+
+export const getNetworkAccountsConfig = (name: string) => {
+  switch (name) {
+    case 'luksoMain':
+      return NETWORKS.luksoMain;
+    case 'luksoTestnet':
+      return NETWORKS.luksoTestnet;
+    case 'luksoDevnet':
+      return NETWORKS.luksoDevnet;
+    default:
+      throw new Error(`Unknown network ${name}`);
+  }
+};
