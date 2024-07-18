@@ -42,3 +42,5 @@ export type { IERC165 } from "./@openzeppelin/contracts/utils/introspection/IERC
 export { IERC165__factory } from "./factories/@openzeppelin/contracts/utils/introspection/IERC165__factory";
 export type { BasicLSP8 } from "./contracts/BasicLSP8";
 export { BasicLSP8__factory } from "./factories/contracts/BasicLSP8__factory";
+export type { LSP8Proxy } from "./contracts/LSP8Proxy";
+export { LSP8Proxy__factory } from "./factories/contracts/LSP8Proxy__factory";
