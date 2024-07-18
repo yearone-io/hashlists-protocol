@@ -2,3 +2,4 @@
 /* tslint:disable */
 /* eslint-disable */
 export type { BasicLSP8 } from "./BasicLSP8";
+export type { LSP8Proxy } from "./LSP8Proxy";

@@ -2,3 +2,4 @@
 /* tslint:disable */
 /* eslint-disable */
 export { BasicLSP8__factory } from "./BasicLSP8__factory";
+export { LSP8Proxy__factory } from "./LSP8Proxy__factory";
