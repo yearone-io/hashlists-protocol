@@ -1069,6 +1069,43 @@
       "artifacts": [
         "ERC725Y"
       ]
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/contracts/LSP8Proxy.sol": {
+      "lastModificationDate": 1721295047368,
+      "contentHash": "f88e9b1c42b6a5c77c3ceb88d10b11a1",
+      "sourceName": "contracts/LSP8Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./BasicLSP8.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "LSP8Proxy"
+      ]
     }
   }
 }
