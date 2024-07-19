@@ -7,5 +7,7 @@ import type * as lsp1UniversalReceiver from "./LSP1UniversalReceiver";
 export type { lsp1UniversalReceiver };
 import type * as lsp4DigitalAssetMetadata from "./LSP4DigitalAssetMetadata";
 export type { lsp4DigitalAssetMetadata };
+import type * as lsp7DigitalAsset from "./LSP7DigitalAsset";
+export type { lsp7DigitalAsset };
 import type * as lsp8IdentifiableDigitalAsset from "./LSP8IdentifiableDigitalAsset";
 export type { lsp8IdentifiableDigitalAsset };
