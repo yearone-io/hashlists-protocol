@@ -1107,44 +1107,6 @@
         "LSP8Proxy"
       ]
     },
-    "/Users/pabloledesma/workspace/hashlists-protocol/contracts/LSP8CollecOfCollec.sol": {
-      "lastModificationDate": 1721379407155,
-      "contentHash": "665964c3cdf1f066194afe80bd4cf263",
-      "sourceName": "contracts/LSP8CollecOfCollec.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol",
-        "./BasicLSP8.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.12"
-      ],
-      "artifacts": [
-        "BasicLSP8Collection"
-      ]
-    },
     "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/ILSP7DigitalAsset.sol": {
       "lastModificationDate": 1721213242511,
       "contentHash": "c20432f0fd546c39ba1eb55a7be8225d",
@@ -1417,6 +1379,44 @@
       ],
       "artifacts": [
         "LSP8Collection"
+      ]
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/contracts/BasicLSP8CollectionOfCollections.sol": {
+      "lastModificationDate": 1721388568613,
+      "contentHash": "5fa9478807552a607ee727a5545bfe21",
+      "sourceName": "contracts/BasicLSP8CollectionOfCollections.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol",
+        "./BasicLSP8.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "BasicLSP8CollectionOfCollections"
       ]
     }
   }

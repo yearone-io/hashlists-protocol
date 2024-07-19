@@ -5,7 +5,7 @@ pragma solidity ^0.8.12;
 import {LSP8Mintable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol";
 import {BasicLSP8} from "./BasicLSP8.sol";
 
-contract BasicLSP8Collection is LSP8Mintable {
+contract BasicLSP8CollectionOfCollections is LSP8Mintable {
     constructor(
         string memory nftCollectionName,
         string memory nftCollectionSymbol,
