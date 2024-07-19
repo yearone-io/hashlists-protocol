@@ -105,6 +105,10 @@ declare module "hardhat/types/runtime" {
       name: "LSP8Proxy",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LSP8Proxy__factory>;
+    getContractFactory(
+      name: "LSP8SubCollection",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LSP8SubCollection__factory>;
 
     getContractAt(
       name: "OwnableUnset",
@@ -221,6 +225,11 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.LSP8Proxy>;
+    getContractAt(
+      name: "LSP8SubCollection",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LSP8SubCollection>;
 
     deployContract(
       name: "OwnableUnset",
@@ -314,6 +323,10 @@ declare module "hardhat/types/runtime" {
       name: "LSP8Proxy",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP8Proxy>;
+    deployContract(
+      name: "LSP8SubCollection",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8SubCollection>;
 
     deployContract(
       name: "OwnableUnset",
@@ -430,6 +443,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP8Proxy>;
+    deployContract(
+      name: "LSP8SubCollection",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8SubCollection>;
 
     // default types
     getContractFactory(

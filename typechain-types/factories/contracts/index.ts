@@ -6,3 +6,4 @@ export { BasicLSP8__factory } from "./BasicLSP8__factory";
 export { BasicLSP8CollectionOfCollections__factory } from "./BasicLSP8CollectionOfCollections__factory";
 export { LSP7SubCollection__factory } from "./LSP7SubCollection__factory";
 export { LSP8Proxy__factory } from "./LSP8Proxy__factory";
+export { LSP8SubCollection__factory } from "./LSP8SubCollection__factory";
