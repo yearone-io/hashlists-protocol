@@ -54,7 +54,5 @@ export type { LSP7SubCollection } from "./contracts/LSP7SubCollection";
 export { LSP7SubCollection__factory } from "./factories/contracts/LSP7SubCollection__factory";
 export type { LSP8Collection } from "./contracts/LSP8CollecLSP7.sol/LSP8Collection";
 export { LSP8Collection__factory } from "./factories/contracts/LSP8CollecLSP7.sol/LSP8Collection__factory";
-export type { BasicLSP8Collection } from "./contracts/LSP8CollecOfCollec.sol/BasicLSP8Collection";
-export { BasicLSP8Collection__factory } from "./factories/contracts/LSP8CollecOfCollec.sol/BasicLSP8Collection__factory";
 export type { LSP8Proxy } from "./contracts/LSP8Proxy";
 export { LSP8Proxy__factory } from "./factories/contracts/LSP8Proxy__factory";
