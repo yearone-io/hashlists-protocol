@@ -1382,8 +1382,8 @@
       ]
     },
     "/Users/pabloledesma/workspace/hashlists-protocol/contracts/BasicLSP8CollectionOfCollections.sol": {
-      "lastModificationDate": 1721388568613,
-      "contentHash": "5fa9478807552a607ee727a5545bfe21",
+      "lastModificationDate": 1721388903010,
+      "contentHash": "18002ac26c5fbc59157a00950a919481",
       "sourceName": "contracts/BasicLSP8CollectionOfCollections.sol",
       "solcConfig": {
         "version": "0.8.12",
@@ -1409,8 +1409,10 @@
         }
       },
       "imports": [
-        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol",
-        "./BasicLSP8.sol"
+        "./BasicLSP8.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol"
       ],
       "versionPragmas": [
         "^0.8.12"

@@ -102,10 +102,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LSP8Collection__factory>;
     getContractFactory(
-      name: "BasicLSP8Collection",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.BasicLSP8Collection__factory>;
-    getContractFactory(
       name: "LSP8Proxy",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LSP8Proxy__factory>;
@@ -221,11 +217,6 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.LSP8Collection>;
     getContractAt(
-      name: "BasicLSP8Collection",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.BasicLSP8Collection>;
-    getContractAt(
       name: "LSP8Proxy",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -319,10 +310,6 @@ declare module "hardhat/types/runtime" {
       name: "LSP8Collection",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP8Collection>;
-    deployContract(
-      name: "BasicLSP8Collection",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.BasicLSP8Collection>;
     deployContract(
       name: "LSP8Proxy",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -438,11 +425,6 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP8Collection>;
-    deployContract(
-      name: "BasicLSP8Collection",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.BasicLSP8Collection>;
     deployContract(
       name: "LSP8Proxy",
       args: any[],

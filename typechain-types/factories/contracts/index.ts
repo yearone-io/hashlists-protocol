@@ -2,7 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export * as lsp8CollecLsp7Sol from "./LSP8CollecLSP7.sol";
-export * as lsp8CollecOfCollecSol from "./LSP8CollecOfCollec.sol";
 export { BasicLSP8__factory } from "./BasicLSP8__factory";
 export { BasicLSP8CollectionOfCollections__factory } from "./BasicLSP8CollectionOfCollections__factory";
 export { LSP7SubCollection__factory } from "./LSP7SubCollection__factory";
