@@ -25,6 +25,12 @@ const config: HardhatUserConfig = {
     sourcify: {
       enabled: false,
     },
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    },
     etherscan: {
       // no API is required to verify contracts
       // via the Blockscout instance of LUKSO Testnet
