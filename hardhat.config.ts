@@ -8,7 +8,15 @@ import { getNetworkAccountsConfig } from "./constants/network";
 dotenv.config();
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.12",
+    solidity: {
+      version: "0.8.12",
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200
+        }
+      }
+    },
     // public LUKSO Testnet
     networks: {
       luksoTestnet: {
@@ -25,12 +33,7 @@ const config: HardhatUserConfig = {
     sourcify: {
       enabled: false,
     },
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200
-      }
-    },
+
     etherscan: {
       // no API is required to verify contracts
       // via the Blockscout instance of LUKSO Testnet
