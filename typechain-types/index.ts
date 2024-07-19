@@ -56,3 +56,5 @@ export type { LSP8Collection } from "./contracts/LSP8CollecLSP7.sol/LSP8Collecti
 export { LSP8Collection__factory } from "./factories/contracts/LSP8CollecLSP7.sol/LSP8Collection__factory";
 export type { LSP8Proxy } from "./contracts/LSP8Proxy";
 export { LSP8Proxy__factory } from "./factories/contracts/LSP8Proxy__factory";
+export type { LSP8SubCollection } from "./contracts/LSP8SubCollection";
+export { LSP8SubCollection__factory } from "./factories/contracts/LSP8SubCollection__factory";
