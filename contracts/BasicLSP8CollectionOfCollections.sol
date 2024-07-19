@@ -2,25 +2,29 @@
 pragma solidity ^0.8.12;
 
 // modules
-import {LSP8Mintable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol";
 import {BasicLSP8} from "./BasicLSP8.sol";
+import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol";
+import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
+import {_LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
 
-contract BasicLSP8CollectionOfCollections is LSP8Mintable {
+contract BasicLSP8CollectionOfCollections is LSP8IdentifiableDigitalAsset {
     constructor(
         string memory nftCollectionName,
         string memory nftCollectionSymbol,
         address contractOwner,
         uint256 lsp4Type,
-        uint256 lsp8TokenIdFormat
+        bytes memory lsp4MetadataURI_
     )
-        LSP8Mintable(
+        LSP8IdentifiableDigitalAsset(
             nftCollectionName,
             nftCollectionSymbol,
             contractOwner,
             lsp4Type,
-            lsp8TokenIdFormat
+            _LSP8_TOKENID_FORMAT_ADDRESS
         )
-    {}
+    {
+        _setData(_LSP4_METADATA_KEY, lsp4MetadataURI_);
+    }
 
     function mint(
         string memory nameOfLSP8_,

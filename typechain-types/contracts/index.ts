@@ -3,8 +3,6 @@
 /* eslint-disable */
 import type * as lsp8CollecLsp7Sol from "./LSP8CollecLSP7.sol";
 export type { lsp8CollecLsp7Sol };
-import type * as lsp8CollecOfCollecSol from "./LSP8CollecOfCollec.sol";
-export type { lsp8CollecOfCollecSol };
 export type { BasicLSP8 } from "./BasicLSP8";
 export type { BasicLSP8CollectionOfCollections } from "./BasicLSP8CollectionOfCollections";
 export type { LSP7SubCollection } from "./LSP7SubCollection";
