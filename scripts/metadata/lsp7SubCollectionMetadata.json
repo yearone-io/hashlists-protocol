@@ -1,0 +1,47 @@
+{
+    "LSP4Metadata": {
+      "name": "KLxENDLESS MEDALLION Purple",
+      "description": "Collaboration with Karl Largerfeld",
+      "links": [
+        {
+          "title": "Get yours now",
+          "url": "https://thedematerialised.com/shop/karl-lagerfeld/klxendless-medallion"
+        }
+      ],
+      "icons": [
+        {
+          "width": 256,
+          "height": 256,
+          "url": "ipfs://QmS3jF9jsoG6gnyJ7wCeJ4bej2aJEnPSv527UV8KxjBDAA",
+          "verification": {
+            "method": "keccak256(bytes)",
+            "data": "0xdd6b5fb6dc984fda0222fb6f6e96b471c0667b12f03b1e804f7b5e6ab62acdb0"
+          }
+        }
+      ],
+      "images": [
+        [
+          {
+            "width": 1024,
+            "height": 974,
+            "url": "ipfs://QmUGmycxrwFec15UC41v9bvnRStK3zxR7mth72mGRcUSPD",
+            "verification": {
+              "method": "keccak256(bytes)",
+              "data": "0x951bf983a4b7bcebc5c0b00a5e783630dcb788e95ee9e44b0b7d4bde4a0b4d81"
+            }
+          }
+        ]
+      ],
+      "assets": [
+        {
+          "verification": {
+            "method": "keccak256(bytes)",
+            "data": "0x88f3d704f3d534267c564019ce2b70a5733d070e71bf2c1f85b5fc487f47a46f"
+          },
+          "url": "ifps://QmTDQGR26dSd3c4qJpmFwTh7gNRPnNbBf2Fg3gULypUag3",
+          "fileType": "mp4"
+        }
+      ],
+      "attributes": []
+    }
+  }

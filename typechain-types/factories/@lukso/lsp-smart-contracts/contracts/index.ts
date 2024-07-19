@@ -4,4 +4,5 @@
 export * as lsp17ContractExtension from "./LSP17ContractExtension";
 export * as lsp1UniversalReceiver from "./LSP1UniversalReceiver";
 export * as lsp4DigitalAssetMetadata from "./LSP4DigitalAssetMetadata";
+export * as lsp7DigitalAsset from "./LSP7DigitalAsset";
 export * as lsp8IdentifiableDigitalAsset from "./LSP8IdentifiableDigitalAsset";

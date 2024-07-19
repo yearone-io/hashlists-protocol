@@ -46,6 +46,18 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LSP4DigitalAssetMetadataCore__factory>;
     getContractFactory(
+      name: "ILSP7DigitalAsset",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ILSP7DigitalAsset__factory>;
+    getContractFactory(
+      name: "LSP7DigitalAsset",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LSP7DigitalAsset__factory>;
+    getContractFactory(
+      name: "LSP7DigitalAssetCore",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LSP7DigitalAssetCore__factory>;
+    getContractFactory(
       name: "ILSP8IdentifiableDigitalAsset",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ILSP8IdentifiableDigitalAsset__factory>;
@@ -77,6 +89,22 @@ declare module "hardhat/types/runtime" {
       name: "BasicLSP8",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.BasicLSP8__factory>;
+    getContractFactory(
+      name: "LSP7SubCollection",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LSP7SubCollection__factory>;
+    getContractFactory(
+      name: "LSP8Collection",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LSP8Collection__factory>;
+    getContractFactory(
+      name: "LSP8Collection",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LSP8Collection__factory>;
+    getContractFactory(
+      name: "BasicLSP8Collection",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.BasicLSP8Collection__factory>;
     getContractFactory(
       name: "LSP8Proxy",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -123,6 +151,21 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.LSP4DigitalAssetMetadataCore>;
     getContractAt(
+      name: "ILSP7DigitalAsset",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ILSP7DigitalAsset>;
+    getContractAt(
+      name: "LSP7DigitalAsset",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LSP7DigitalAsset>;
+    getContractAt(
+      name: "LSP7DigitalAssetCore",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LSP7DigitalAssetCore>;
+    getContractAt(
       name: "ILSP8IdentifiableDigitalAsset",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -162,6 +205,26 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.BasicLSP8>;
+    getContractAt(
+      name: "LSP7SubCollection",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LSP7SubCollection>;
+    getContractAt(
+      name: "LSP8Collection",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LSP8Collection>;
+    getContractAt(
+      name: "LSP8Collection",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LSP8Collection>;
+    getContractAt(
+      name: "BasicLSP8Collection",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.BasicLSP8Collection>;
     getContractAt(
       name: "LSP8Proxy",
       address: string | ethers.Addressable,
@@ -201,6 +264,18 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP4DigitalAssetMetadataCore>;
     deployContract(
+      name: "ILSP7DigitalAsset",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ILSP7DigitalAsset>;
+    deployContract(
+      name: "LSP7DigitalAsset",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP7DigitalAsset>;
+    deployContract(
+      name: "LSP7DigitalAssetCore",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP7DigitalAssetCore>;
+    deployContract(
       name: "ILSP8IdentifiableDigitalAsset",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ILSP8IdentifiableDigitalAsset>;
@@ -232,6 +307,22 @@ declare module "hardhat/types/runtime" {
       name: "BasicLSP8",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.BasicLSP8>;
+    deployContract(
+      name: "LSP7SubCollection",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP7SubCollection>;
+    deployContract(
+      name: "LSP8Collection",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8Collection>;
+    deployContract(
+      name: "LSP8Collection",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8Collection>;
+    deployContract(
+      name: "BasicLSP8Collection",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.BasicLSP8Collection>;
     deployContract(
       name: "LSP8Proxy",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -278,6 +369,21 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP4DigitalAssetMetadataCore>;
     deployContract(
+      name: "ILSP7DigitalAsset",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ILSP7DigitalAsset>;
+    deployContract(
+      name: "LSP7DigitalAsset",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP7DigitalAsset>;
+    deployContract(
+      name: "LSP7DigitalAssetCore",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP7DigitalAssetCore>;
+    deployContract(
       name: "ILSP8IdentifiableDigitalAsset",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -317,6 +423,26 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.BasicLSP8>;
+    deployContract(
+      name: "LSP7SubCollection",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP7SubCollection>;
+    deployContract(
+      name: "LSP8Collection",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8Collection>;
+    deployContract(
+      name: "LSP8Collection",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8Collection>;
+    deployContract(
+      name: "BasicLSP8Collection",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.BasicLSP8Collection>;
     deployContract(
       name: "LSP8Proxy",
       args: any[],

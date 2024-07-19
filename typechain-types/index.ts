@@ -26,6 +26,12 @@ export type { LSP4DigitalAssetMetadata } from "./@lukso/lsp-smart-contracts/cont
 export { LSP4DigitalAssetMetadata__factory } from "./factories/@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadata__factory";
 export type { LSP4DigitalAssetMetadataCore } from "./@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadataCore";
 export { LSP4DigitalAssetMetadataCore__factory } from "./factories/@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadataCore__factory";
+export type { ILSP7DigitalAsset } from "./@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/ILSP7DigitalAsset";
+export { ILSP7DigitalAsset__factory } from "./factories/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/ILSP7DigitalAsset__factory";
+export type { LSP7DigitalAsset } from "./@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAsset";
+export { LSP7DigitalAsset__factory } from "./factories/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAsset__factory";
+export type { LSP7DigitalAssetCore } from "./@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAssetCore";
+export { LSP7DigitalAssetCore__factory } from "./factories/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAssetCore__factory";
 export type { ILSP8IdentifiableDigitalAsset } from "./@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/ILSP8IdentifiableDigitalAsset";
 export { ILSP8IdentifiableDigitalAsset__factory } from "./factories/@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/ILSP8IdentifiableDigitalAsset__factory";
 export type { LSP8IdentifiableDigitalAsset } from "./@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset";
@@ -42,5 +48,11 @@ export type { IERC165 } from "./@openzeppelin/contracts/utils/introspection/IERC
 export { IERC165__factory } from "./factories/@openzeppelin/contracts/utils/introspection/IERC165__factory";
 export type { BasicLSP8 } from "./contracts/BasicLSP8";
 export { BasicLSP8__factory } from "./factories/contracts/BasicLSP8__factory";
+export type { LSP7SubCollection } from "./contracts/LSP7SubCollection";
+export { LSP7SubCollection__factory } from "./factories/contracts/LSP7SubCollection__factory";
+export type { LSP8Collection } from "./contracts/LSP8CollecLP7.sol/LSP8Collection";
+export { LSP8Collection__factory } from "./factories/contracts/LSP8CollecLP7.sol/LSP8Collection__factory";
+export type { BasicLSP8Collection } from "./contracts/LSP8CollecOfCollec.sol/BasicLSP8Collection";
+export { BasicLSP8Collection__factory } from "./factories/contracts/LSP8CollecOfCollec.sol/BasicLSP8Collection__factory";
 export type { LSP8Proxy } from "./contracts/LSP8Proxy";
 export { LSP8Proxy__factory } from "./factories/contracts/LSP8Proxy__factory";
