@@ -107,10 +107,8 @@ async function main() {
     deployer.address,
     // lsp4TokenType is address - see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata.md#lsp4tokentype
     2,
-    // tokenId format is address - see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-8-IdentifiableDigitalAsset.md#lsp8Collectionidformat
-    2,
     // encoded metadata
-    // encodeMetadata.values[0],
+    encodeMetadata.values[0],
   );
 
   // wait until the contract is mined
