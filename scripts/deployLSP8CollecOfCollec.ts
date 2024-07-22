@@ -128,7 +128,7 @@ async function main() {
         address: lsp8Collection.target,
         network: NETWORK,
         constructorArguments: deploymentArguments,
-        contract: "contracts/BasicLSP8.sol:BasicLSP8"
+        contract: "contracts/BasicLSP8CollectionOfCollections.sol:BasicLSP8CollectionOfCollections"
     });
     console.log("Contract verified");
 } catch (error) {
