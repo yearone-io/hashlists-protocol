@@ -7,7 +7,7 @@ import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts
 import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 import {_LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
 
-contract BasicLSP8CollectionOfCollections is LSP8IdentifiableDigitalAsset {
+contract LSP8ParentCollection is LSP8IdentifiableDigitalAsset {
     constructor(
         string memory nftCollectionName,
         string memory nftCollectionSymbol,
@@ -34,11 +34,10 @@ contract BasicLSP8CollectionOfCollections is LSP8IdentifiableDigitalAsset {
         bytes memory lsp4MetadataURIOfLSP8_,
         bytes32 customTokenId
     ) public onlyOwner returns (address) {
-        // deploy the BasicLSP8 contract and set the address as tokenId
         LSP8SubCollection lsp8SubCollection = new LSP8SubCollection(
             nameOfLSP8_,
             symbolOfLSP8_,
-            address(this), // owner of the LSP8SubCollection is this contract (LSP8Collection contract)
+            address(this), // owner of the LSP8SubCollection is this contract (LSP8Collection contract) ?? should it be this way??
             lsp4TokenType_,
             lsp4MetadataURIOfLSP8_,
             customTokenId

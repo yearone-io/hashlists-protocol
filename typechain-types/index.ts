@@ -48,12 +48,14 @@ export type { IERC165 } from "./@openzeppelin/contracts/utils/introspection/IERC
 export { IERC165__factory } from "./factories/@openzeppelin/contracts/utils/introspection/IERC165__factory";
 export type { BasicLSP8 } from "./contracts/BasicLSP8";
 export { BasicLSP8__factory } from "./factories/contracts/BasicLSP8__factory";
-export type { BasicLSP8CollectionOfCollections } from "./contracts/BasicLSP8CollectionOfCollections";
-export { BasicLSP8CollectionOfCollections__factory } from "./factories/contracts/BasicLSP8CollectionOfCollections__factory";
 export type { LSP7SubCollection } from "./contracts/LSP7SubCollection";
 export { LSP7SubCollection__factory } from "./factories/contracts/LSP7SubCollection__factory";
 export type { LSP8Collection } from "./contracts/LSP8CollecLSP7.sol/LSP8Collection";
 export { LSP8Collection__factory } from "./factories/contracts/LSP8CollecLSP7.sol/LSP8Collection__factory";
+export type { LSP8CollectionOfCollections } from "./contracts/LSP8CollectionOfCollections";
+export { LSP8CollectionOfCollections__factory } from "./factories/contracts/LSP8CollectionOfCollections__factory";
+export type { LSP8ParentCollection } from "./contracts/LSP8ParentCollection";
+export { LSP8ParentCollection__factory } from "./factories/contracts/LSP8ParentCollection__factory";
 export type { LSP8Proxy } from "./contracts/LSP8Proxy";
 export { LSP8Proxy__factory } from "./factories/contracts/LSP8Proxy__factory";
 export type { LSP8SubCollection } from "./contracts/LSP8SubCollection";
