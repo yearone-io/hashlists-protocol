@@ -9,12 +9,13 @@ dotenv.config();
 
 const config: HardhatUserConfig = {
     solidity: {
-      version: "0.8.12",
+      version: "0.8.24",
       settings: {
         optimizer: {
           enabled: true,
-          runs: 10
-        }
+          runs: 200
+        },
+        viaIR: true
       }
     },
     // public LUKSO Testnet
