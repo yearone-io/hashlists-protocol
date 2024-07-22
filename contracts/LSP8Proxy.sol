@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.24;
 import "./BasicLSP8.sol";
 
 contract LSP8Proxy {
