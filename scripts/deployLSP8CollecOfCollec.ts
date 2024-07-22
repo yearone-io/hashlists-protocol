@@ -109,6 +109,9 @@ async function main() {
     2,
     // encoded metadata
     encodeMetadata.values[0],
+    // {      
+    //   gasLimit: 41_000_000n,
+    // }
   );
 
   // wait until the contract is mined

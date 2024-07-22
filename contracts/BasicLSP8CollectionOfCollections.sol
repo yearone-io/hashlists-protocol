@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.24;
 
 // modules
 import {LSP8SubCollection} from "./LSP8SubCollection.sol";
@@ -30,26 +30,19 @@ contract BasicLSP8CollectionOfCollections is LSP8IdentifiableDigitalAsset {
         string memory nameOfLSP8_,
         string memory symbolOfLSP8_,
         uint256 lsp4TokenType_,
-        uint256 lsp8TokenIdFormat_,
         address receiver_,
         bytes memory lsp4MetadataURIOfLSP8_
-    ) public onlyOwner returns (address lsp8SubCollectionAddress) {
+    ) public onlyOwner returns (address) {
         // deploy the BasicLSP8 contract and set the address as tokenId
         LSP8SubCollection lsp8SubCollection = new LSP8SubCollection(
             nameOfLSP8_,
             symbolOfLSP8_,
             address(this), // owner of the LSP8SubCollection is this contract (LSP8Collection contract)
             lsp4TokenType_,
-            lsp8TokenIdFormat_,
             lsp4MetadataURIOfLSP8_
         );
 
-        lsp8SubCollectionAddress = address(lsp8SubCollection);
-
-        // convert the address of the LSP8SubCollection to bytes32 to use it as tokenId
-        bytes32 tokenId = bytes32(uint256(uint160(lsp8SubCollectionAddress)));
-
-        // mint the token for the LSP8SubCollection
+        bytes32 tokenId = bytes32(uint256(uint160(address(lsp8SubCollection))));
         _mint(receiver_, tokenId, true, "");
     }
 }
