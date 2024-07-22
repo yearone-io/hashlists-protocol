@@ -316,6 +316,76 @@
       ],
       "artifacts": []
     },
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7Errors.sol": {
+      "lastModificationDate": 1721213242598,
+      "contentHash": "ef34de7a6355aa20cebecf19195630f4",
+      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7Errors.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": []
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7Constants.sol": {
+      "lastModificationDate": 1721213242594,
+      "contentHash": "6dc3fb89417af287acc542b66f295dd9",
+      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7Constants.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": []
+    },
     "/Users/pabloledesma/workspace/hashlists-protocol/contracts/BasicLSP8.sol": {
       "lastModificationDate": 1721644521587,
       "contentHash": "63117b1a3b05ac1d84b21b395222886a",
@@ -483,6 +553,48 @@
         "ILSP8Mintable"
       ]
     },
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadata.sol": {
+      "lastModificationDate": 1721213242578,
+      "contentHash": "7f1ef10618b62689c2492f43aa581ba5",
+      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadata.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@erc725/smart-contracts/contracts/ERC725Y.sol",
+        "@erc725/smart-contracts/contracts/ERC725YCore.sol",
+        "./LSP4DigitalAssetMetadataCore.sol",
+        "./LSP4Constants.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "LSP4DigitalAssetMetadata"
+      ]
+    },
     "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@erc725/smart-contracts/contracts/ERC725YCore.sol": {
       "lastModificationDate": 1721213241728,
       "contentHash": "f4bddff0a6b8e8d77b4519c8e731f03c",
@@ -525,90 +637,6 @@
       ],
       "artifacts": [
         "ERC725YCore"
-      ]
-    },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAssetCore.sol": {
-      "lastModificationDate": 1721213242609,
-      "contentHash": "5cf47819602833fe12bda3e82914406c",
-      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAssetCore.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../LSP1UniversalReceiver/ILSP1UniversalReceiver.sol",
-        "./ILSP8IdentifiableDigitalAsset.sol",
-        "../LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadataCore.sol",
-        "@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
-        "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol",
-        "../LSP1UniversalReceiver/LSP1Utils.sol",
-        "./LSP8Errors.sol",
-        "../LSP1UniversalReceiver/LSP1Constants.sol",
-        "./LSP8Constants.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.12"
-      ],
-      "artifacts": [
-        "LSP8IdentifiableDigitalAssetCore"
-      ]
-    },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1721213242491,
-      "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC165"
       ]
     },
     "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP17ContractExtension/LSP17Extendable.sol": {
@@ -733,10 +761,47 @@
         "LSP4DigitalAssetMetadataCore"
       ]
     },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadata.sol": {
-      "lastModificationDate": 1721213242578,
-      "contentHash": "7f1ef10618b62689c2492f43aa581ba5",
-      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadata.sol",
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1721213242491,
+      "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAssetCore.sol": {
+      "lastModificationDate": 1721213242609,
+      "contentHash": "5cf47819602833fe12bda3e82914406c",
+      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAssetCore.sol",
       "solcConfig": {
         "version": "0.8.24",
         "settings": {
@@ -763,22 +828,68 @@
         }
       },
       "imports": [
-        "@erc725/smart-contracts/contracts/ERC725Y.sol",
-        "@erc725/smart-contracts/contracts/ERC725YCore.sol",
-        "./LSP4DigitalAssetMetadataCore.sol",
-        "./LSP4Constants.sol"
+        "../LSP1UniversalReceiver/ILSP1UniversalReceiver.sol",
+        "./ILSP8IdentifiableDigitalAsset.sol",
+        "../LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadataCore.sol",
+        "@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
+        "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol",
+        "../LSP1UniversalReceiver/LSP1Utils.sol",
+        "./LSP8Errors.sol",
+        "../LSP1UniversalReceiver/LSP1Constants.sol",
+        "./LSP8Constants.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "LSP8IdentifiableDigitalAssetCore"
+      ]
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@erc725/smart-contracts/contracts/ERC725Y.sol": {
+      "lastModificationDate": 1721213241718,
+      "contentHash": "001ee1a4ae5df6463f1bbd060f5ce03a",
+      "sourceName": "@erc725/smart-contracts/contracts/ERC725Y.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./custom/OwnableUnset.sol",
+        "./ERC725YCore.sol",
+        "./errors.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
       ],
       "artifacts": [
-        "LSP4DigitalAssetMetadata"
+        "ERC725Y"
       ]
     },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@erc725/smart-contracts/contracts/interfaces/IERC725Y.sol": {
-      "lastModificationDate": 1721213241759,
-      "contentHash": "0f2878cc98fb0bc8838faef702816d2e",
-      "sourceName": "@erc725/smart-contracts/contracts/interfaces/IERC725Y.sol",
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@erc725/smart-contracts/contracts/custom/OwnableUnset.sol": {
+      "lastModificationDate": 1721213241764,
+      "contentHash": "9a11dbe00e14f01840af6955e9832b25",
+      "sourceName": "@erc725/smart-contracts/contracts/custom/OwnableUnset.sol",
       "solcConfig": {
         "version": "0.8.24",
         "settings": {
@@ -805,13 +916,13 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/utils/introspection/IERC165.sol"
+        "../errors.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "^0.8.4"
       ],
       "artifacts": [
-        "IERC725Y"
+        "OwnableUnset"
       ]
     },
     "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
@@ -853,10 +964,10 @@
         "ERC165"
       ]
     },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@erc725/smart-contracts/contracts/custom/OwnableUnset.sol": {
-      "lastModificationDate": 1721213241764,
-      "contentHash": "9a11dbe00e14f01840af6955e9832b25",
-      "sourceName": "@erc725/smart-contracts/contracts/custom/OwnableUnset.sol",
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@erc725/smart-contracts/contracts/interfaces/IERC725Y.sol": {
+      "lastModificationDate": 1721213241759,
+      "contentHash": "0f2878cc98fb0bc8838faef702816d2e",
+      "sourceName": "@erc725/smart-contracts/contracts/interfaces/IERC725Y.sol",
       "solcConfig": {
         "version": "0.8.24",
         "settings": {
@@ -883,13 +994,52 @@
         }
       },
       "imports": [
-        "../errors.sol"
+        "@openzeppelin/contracts/utils/introspection/IERC165.sol"
       ],
       "versionPragmas": [
-        "^0.8.4"
+        "^0.8.0"
       ],
       "artifacts": [
-        "OwnableUnset"
+        "IERC725Y"
+      ]
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@openzeppelin/contracts/utils/introspection/ERC165Checker.sol": {
+      "lastModificationDate": 1721213242381,
+      "contentHash": "0a66857c4a2223ad54b814ea56470c97",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC165Checker"
       ]
     },
     "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP1UniversalReceiver/ILSP1UniversalReceiver.sol": {
@@ -1048,86 +1198,6 @@
         "EnumerableSet"
       ]
     },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@openzeppelin/contracts/utils/introspection/ERC165Checker.sol": {
-      "lastModificationDate": 1721213242381,
-      "contentHash": "0a66857c4a2223ad54b814ea56470c97",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC165Checker"
-      ]
-    },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@erc725/smart-contracts/contracts/ERC725Y.sol": {
-      "lastModificationDate": 1721213241718,
-      "contentHash": "001ee1a4ae5df6463f1bbd060f5ce03a",
-      "sourceName": "@erc725/smart-contracts/contracts/ERC725Y.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./custom/OwnableUnset.sol",
-        "./ERC725YCore.sol",
-        "./errors.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "ERC725Y"
-      ]
-    },
     "/Users/pabloledesma/workspace/hashlists-protocol/contracts/LSP8Proxy.sol": {
       "lastModificationDate": 1721644538023,
       "contentHash": "0e3df6f81cfd0b3c846eb341414a2d73",
@@ -1207,122 +1277,6 @@
         "ILSP7DigitalAsset"
       ]
     },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAssetCore.sol": {
-      "lastModificationDate": 1721213242596,
-      "contentHash": "270a8658ca555a3b36455d1ec814640a",
-      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAssetCore.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../LSP1UniversalReceiver/ILSP1UniversalReceiver.sol",
-        "./ILSP7DigitalAsset.sol",
-        "@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
-        "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol",
-        "../LSP1UniversalReceiver/LSP1Utils.sol",
-        "./LSP7Errors.sol",
-        "../LSP1UniversalReceiver/LSP1Constants.sol",
-        "./LSP7Constants.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "LSP7DigitalAssetCore"
-      ]
-    },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7Errors.sol": {
-      "lastModificationDate": 1721213242598,
-      "contentHash": "ef34de7a6355aa20cebecf19195630f4",
-      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7Errors.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": []
-    },
-    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7Constants.sol": {
-      "lastModificationDate": 1721213242594,
-      "contentHash": "6dc3fb89417af287acc542b66f295dd9",
-      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7Constants.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": []
-    },
     "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAsset.sol": {
       "lastModificationDate": 1721213242595,
       "contentHash": "89139a8cab9993592d0d5dee4d471885",
@@ -1369,6 +1323,138 @@
       ],
       "artifacts": [
         "LSP7DigitalAsset"
+      ]
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/node_modules/@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAssetCore.sol": {
+      "lastModificationDate": 1721213242596,
+      "contentHash": "270a8658ca555a3b36455d1ec814640a",
+      "sourceName": "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/LSP7DigitalAssetCore.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../LSP1UniversalReceiver/ILSP1UniversalReceiver.sol",
+        "./ILSP7DigitalAsset.sol",
+        "@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
+        "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol",
+        "../LSP1UniversalReceiver/LSP1Utils.sol",
+        "./LSP7Errors.sol",
+        "../LSP1UniversalReceiver/LSP1Constants.sol",
+        "./LSP7Constants.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "LSP7DigitalAssetCore"
+      ]
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/contracts/LSP8SubCollection.sol": {
+      "lastModificationDate": 1721652623334,
+      "contentHash": "ffcf2a341beba4c79a3d61fb74075a62",
+      "sourceName": "contracts/LSP8SubCollection.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadata.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "LSP8SubCollection"
+      ]
+    },
+    "/Users/pabloledesma/workspace/hashlists-protocol/contracts/BasicLSP8CollectionOfCollections.sol": {
+      "lastModificationDate": 1721652709017,
+      "contentHash": "9b0b34dfc6418af3a9d8985f5f9cebca",
+      "sourceName": "contracts/BasicLSP8CollectionOfCollections.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./LSP8SubCollection.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol",
+        "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "BasicLSP8CollectionOfCollections"
       ]
     },
     "/Users/pabloledesma/workspace/hashlists-protocol/contracts/LSP7SubCollection.sol": {
@@ -1453,91 +1539,6 @@
       ],
       "artifacts": [
         "LSP8Collection"
-      ]
-    },
-    "/Users/pabloledesma/workspace/hashlists-protocol/contracts/BasicLSP8CollectionOfCollections.sol": {
-      "lastModificationDate": 1721650024023,
-      "contentHash": "0a4d8441683febfcddf5a6b36eea5241",
-      "sourceName": "contracts/BasicLSP8CollectionOfCollections.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./LSP8SubCollection.sol",
-        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol",
-        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol",
-        "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.24"
-      ],
-      "artifacts": [
-        "BasicLSP8CollectionOfCollections"
-      ]
-    },
-    "/Users/pabloledesma/workspace/hashlists-protocol/contracts/LSP8SubCollection.sol": {
-      "lastModificationDate": 1721649397027,
-      "contentHash": "6b0e04c60638943bdda3cc632ae5435d",
-      "sourceName": "contracts/LSP8SubCollection.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "viaIR": true,
-          "evmVersion": "paris",
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol",
-        "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadata.sol",
-        "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol",
-        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol",
-        "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.24"
-      ],
-      "artifacts": [
-        "LSP8SubCollection"
       ]
     }
   }
