@@ -90,10 +90,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.BasicLSP8__factory>;
     getContractFactory(
-      name: "BasicLSP8CollectionOfCollections",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.BasicLSP8CollectionOfCollections__factory>;
-    getContractFactory(
       name: "LSP7SubCollection",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LSP7SubCollection__factory>;
@@ -101,6 +97,14 @@ declare module "hardhat/types/runtime" {
       name: "LSP8Collection",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.LSP8Collection__factory>;
+    getContractFactory(
+      name: "LSP8CollectionOfCollections",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LSP8CollectionOfCollections__factory>;
+    getContractFactory(
+      name: "LSP8ParentCollection",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.LSP8ParentCollection__factory>;
     getContractFactory(
       name: "LSP8Proxy",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -206,11 +210,6 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.BasicLSP8>;
     getContractAt(
-      name: "BasicLSP8CollectionOfCollections",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.BasicLSP8CollectionOfCollections>;
-    getContractAt(
       name: "LSP7SubCollection",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -220,6 +219,16 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.LSP8Collection>;
+    getContractAt(
+      name: "LSP8CollectionOfCollections",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LSP8CollectionOfCollections>;
+    getContractAt(
+      name: "LSP8ParentCollection",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.LSP8ParentCollection>;
     getContractAt(
       name: "LSP8Proxy",
       address: string | ethers.Addressable,
@@ -308,10 +317,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.BasicLSP8>;
     deployContract(
-      name: "BasicLSP8CollectionOfCollections",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.BasicLSP8CollectionOfCollections>;
-    deployContract(
       name: "LSP7SubCollection",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP7SubCollection>;
@@ -319,6 +324,14 @@ declare module "hardhat/types/runtime" {
       name: "LSP8Collection",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP8Collection>;
+    deployContract(
+      name: "LSP8CollectionOfCollections",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8CollectionOfCollections>;
+    deployContract(
+      name: "LSP8ParentCollection",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8ParentCollection>;
     deployContract(
       name: "LSP8Proxy",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -424,11 +437,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.BasicLSP8>;
     deployContract(
-      name: "BasicLSP8CollectionOfCollections",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.BasicLSP8CollectionOfCollections>;
-    deployContract(
       name: "LSP7SubCollection",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -438,6 +446,16 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.LSP8Collection>;
+    deployContract(
+      name: "LSP8CollectionOfCollections",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8CollectionOfCollections>;
+    deployContract(
+      name: "LSP8ParentCollection",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.LSP8ParentCollection>;
     deployContract(
       name: "LSP8Proxy",
       args: any[],
