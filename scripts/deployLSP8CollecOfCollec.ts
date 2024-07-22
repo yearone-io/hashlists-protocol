@@ -79,6 +79,7 @@ import lsp8CollectionMetadata from './metadata/lsp8CollectionMetadata.json';
 
 const lsp8CollectionMetadataCID =
   'ipfs://QmcwYFhGP7KBo1a4EvbBxuvDf3jQ2bw1dfMEovATRJZetX';
+const { NETWORK } = process.env;
 
 async function main() {
   // get LSP8Collection contract factory
@@ -99,6 +100,8 @@ async function main() {
     },
   ]);
 
+  const deploymentArguments = ['MyToken0',  'MT0', deployer.address, 2, encodeMetadata.values[0]];
+
   // deploy LSP8Collection contract
   const lsp8Collection = await LSP8Collection.deploy(
     'MyToken0',
@@ -118,7 +121,19 @@ async function main() {
   await lsp8Collection.waitForDeployment();
 
   // print contract address
-  console.log('LSP8Collection deployed to:', await lsp8Collection.getAddress());
+  const address = await lsp8Collection.getAddress();
+  console.log('LSP8Collection deployed to:', address);
+  try {
+    await hre.run("verify:verify", {
+        address: lsp8Collection.target,
+        network: NETWORK,
+        constructorArguments: deploymentArguments,
+        contract: "contracts/BasicLSP8.sol:BasicLSP8"
+    });
+    console.log("Contract verified");
+} catch (error) {
+    console.error("Contract verification failed:", error);
+}
 }
 
 main().catch((error) => {
