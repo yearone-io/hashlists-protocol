@@ -31,7 +31,8 @@ contract BasicLSP8CollectionOfCollections is LSP8IdentifiableDigitalAsset {
         string memory symbolOfLSP8_,
         uint256 lsp4TokenType_,
         address receiver_,
-        bytes memory lsp4MetadataURIOfLSP8_
+        bytes memory lsp4MetadataURIOfLSP8_,
+        bytes32 customTokenId
     ) public onlyOwner returns (address) {
         // deploy the BasicLSP8 contract and set the address as tokenId
         LSP8SubCollection lsp8SubCollection = new LSP8SubCollection(
@@ -39,7 +40,8 @@ contract BasicLSP8CollectionOfCollections is LSP8IdentifiableDigitalAsset {
             symbolOfLSP8_,
             address(this), // owner of the LSP8SubCollection is this contract (LSP8Collection contract)
             lsp4TokenType_,
-            lsp4MetadataURIOfLSP8_
+            lsp4MetadataURIOfLSP8_,
+            customTokenId
         );
 
         bytes32 tokenId = bytes32(uint256(uint160(address(lsp8SubCollection))));
