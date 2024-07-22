@@ -3,6 +3,7 @@ import "@nomicfoundation/hardhat-verify";
 import "@nomicfoundation/hardhat-toolbox";
 import * as dotenv from 'dotenv';
 import { getNetworkAccountsConfig } from "./constants/network";
+require('hardhat-contract-sizer');
 
 // load env vars
 dotenv.config();
@@ -17,6 +18,11 @@ const config: HardhatUserConfig = {
         },
         viaIR: true
       }
+    },
+    contractSizer: {
+      alphaSort: true,
+      runOnCompile: true,
+      disambiguatePaths: false,
     },
     // public LUKSO Testnet
     networks: {

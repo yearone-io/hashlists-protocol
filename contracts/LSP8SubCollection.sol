@@ -6,16 +6,18 @@ import {LSP4DigitalAssetMetadata} from "@lukso/lsp-smart-contracts/contracts/LSP
 import {_LSP4_SUPPORTED_STANDARDS_KEY, _LSP4_SUPPORTED_STANDARDS_VALUE, _LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
 import {_LSP8_REFERENCE_CONTRACT} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
+import {LSP8Mintable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol";
 
-contract LSP8SubCollection is LSP8IdentifiableDigitalAsset {
+contract LSP8SubCollection is LSP8Mintable {
     constructor(
         string memory name_,
         string memory symbol_,
         address newOwner_,
         uint256 lsp4TokenType_,
-        bytes memory lsp4MetadataURI_
+        bytes memory lsp4MetadataURI_,
+        bytes32 customTokenId
     )
-        LSP8IdentifiableDigitalAsset(
+        LSP8Mintable(
             name_,
             symbol_,
             newOwner_,
@@ -34,6 +36,7 @@ contract LSP8SubCollection is LSP8IdentifiableDigitalAsset {
 
         // mint all tokens to the receiver of the initial tokens
         // _mint(receiverOfInitialTokens_, totalSupply_, true, "");
+        _mint(newOwner_, customTokenId, true, "");
     }
 
     // todo ein?????
