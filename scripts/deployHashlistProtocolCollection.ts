@@ -29,26 +29,25 @@ async function main() {
     },
   ]);
 
-  const deploymentArguments = ['LSP8 Parent',  'DAD', deployer.address, 2, encodeMetadata.values[0]];
+  const deploymentArguments = ['Hashlist protocol collection',  'HPC', deployer.address, encodeMetadata.values[0]];
 
   // deploy LSP8Collection contract
-  const lsp8Collection = await HashlistProtocolCollection.deploy(
+  const hashlistContract = await HashlistProtocolCollection.deploy(
     'Hashlist Protocol Collection',
     'HPC',
     deployer.address,
-    2,
     encodeMetadata.values[0],
   );
 
   // wait until the contract is mined
-  await lsp8Collection.waitForDeployment();
+  await hashlistContract.waitForDeployment();
 
   // print contract address
-  const address = await lsp8Collection.getAddress();
+  const address = await hashlistContract.getAddress();
   console.log('LSP8Collection deployed to:', address);
   try {
     await hre.run("verify:verify", {
-        address: lsp8Collection.target,
+        address: hashlistContract.target,
         network: NETWORK,
         constructorArguments: deploymentArguments,
         contract: "contracts/HashlistProtocolCollection.sol:HashlistProtocolCollection"
@@ -72,14 +71,14 @@ async function main() {
   ])
 
 
-const tx = await lsp8Collection.mint(
+const tx = await hashlistContract.mint(
   'Curated list test',
   'CLT',
   deployer.address,
   curatedListEncodeMetadata.values[0],
 );
 await tx.wait();
-  console.log('✅ Curated List deployed and protocol NFT minted. Tx:', tx.hash);
+console.log('✅ Curated List deployed and protocol NFT minted. Tx:', tx.hash);
 }
 
 main().catch((error) => {

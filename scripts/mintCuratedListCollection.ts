@@ -1,7 +1,7 @@
 import { ethers } from 'hardhat';
 
 const curatedListCollectionContract =
-  '0xDaC6b300A741f9A4Abff58B2C43F2D66f007c156';
+  '0x9066ffa5fAe346Da6972beE99b58592112252AaF';
 
 async function main() {
   // get LSP8Collection contract
