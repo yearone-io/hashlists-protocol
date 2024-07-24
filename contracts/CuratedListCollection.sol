@@ -96,7 +96,7 @@ contract CuratedListCollection is LSP8Enumerable {
         LSP4DigitalAssetMetadata._setData(dataKey, dataValue);
     }
 
-    function mint(bytes32 addressOfEntry) public onlyOwner {
+    function mint(bytes32 addressOfEntry) public {
         _mint(owner(), addressOfEntry, true, "");
     }
 }
