@@ -4,7 +4,7 @@ const curatedListCollectionContract =
   '0x54031b6bCb3a6C9a0cceD054A6aD46c28967a819';
 
 async function main() {
-  // get LSP8Collection contract
+
   const curatedListcontract = await ethers.getContractAt(
     'CuratedListCollection',
     curatedListCollectionContract,
@@ -24,8 +24,6 @@ async function main() {
 
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
