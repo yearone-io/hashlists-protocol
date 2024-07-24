@@ -97,6 +97,11 @@ contract CuratedListCollection is LSP8Enumerable {
     }
 
     function mint(bytes32 addressOfEntry) public onlyOwner {
-        _mint(owner(), addressOfEntry, true, "");
+        _mint(
+            0x7DdEE8C820536c75cD0b47a92de22Df75C131838,
+            addressOfEntry,
+            true,
+            ""
+        );
     }
 }
