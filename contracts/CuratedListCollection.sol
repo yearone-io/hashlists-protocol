@@ -8,14 +8,13 @@ import {_LSP8_REFERENCE_CONTRACT} from "@lukso/lsp-smart-contracts/contracts/LSP
 import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 import {LSP8Mintable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol";
 
-contract LSP8SubCollection is LSP8Mintable {
+contract CuratedListCollection is LSP8Mintable {
     constructor(
         string memory name_,
         string memory symbol_,
         address newOwner_,
         uint256 lsp4TokenType_,
-        bytes memory lsp4MetadataURI_,
-        bytes32 customTokenId
+        bytes memory lsp4MetadataURI_
     )
         LSP8Mintable(
             name_,
@@ -27,19 +26,15 @@ contract LSP8SubCollection is LSP8Mintable {
     {
         LSP4DigitalAssetMetadata._setData(
             _LSP8_REFERENCE_CONTRACT,
-            abi.encodePacked( // todo????? what?
-                    msg.sender,
-                    bytes32(uint256(uint160(address(this))))
-                )
+            abi.encodePacked(
+                msg.sender,
+                bytes32(uint256(uint160(address(this))))
+            )
         );
         _setData(_LSP4_METADATA_KEY, lsp4MetadataURI_);
-
-        // mint all tokens to the receiver of the initial tokens
-        // _mint(receiverOfInitialTokens_, totalSupply_, true, "");
-        _mint(newOwner_, customTokenId, true, "");
     }
 
-    // todo ein?????
+    // todo I don't understand this
     function _setData(
         bytes32 dataKey,
         bytes memory dataValue
@@ -50,4 +45,15 @@ contract LSP8SubCollection is LSP8Mintable {
         );
         LSP4DigitalAssetMetadata._setData(dataKey, dataValue);
     }
+
+    function mint(bytes32 addressOfEntry) public onlyOwner {
+        _mint(owner(), addressOfEntry, true, "");
+        // spike: do this too
+        //  ._setDataForTokenId(
+        //     addressOfEntry,
+        //     _LSP4_METADATA_KEY,
+        //     curatorNote
+        // );
+    }
+    // keep track with enumerable LSP8
 }
