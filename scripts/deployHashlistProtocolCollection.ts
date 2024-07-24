@@ -13,7 +13,7 @@ async function main() {
   const CuratedListLibraryFactory = await ethers.getContractFactory('CuratedListLibrary');
   const curatedListLibrary = await CuratedListLibraryFactory.deploy();
   await curatedListLibrary.waitForDeployment();
-  console.log('CuratedListLibrary deployed to:', curatedListLibrary.target);
+  console.log('✅ CuratedListLibrary deployed to:', curatedListLibrary.target);
 
   // get LSP8Collection contract factory
   const HashlistProtocolCollectionFactory = await ethers.getContractFactory('HashlistProtocolCollection', {
@@ -51,7 +51,7 @@ async function main() {
 
   // print contract address
   const address = await hashlistContract.getAddress();
-  console.log('Hashlist Protocol deployed to:', address);
+  console.log('✅ Hashlist Protocol deployed to:', address);
 
   try {
     await hre.run("verify:verify", {
@@ -90,13 +90,37 @@ async function main() {
   const receipt = await tx.wait();
   console.log('✅ Curated List deployed and protocol NFT minted. Tx:', tx.hash);
 
-  const curatedListCreatedEvent = receipt.events?.find(event => event.event === 'CuratedListCreated');
+  const curatedListCreatedEvent = receipt.logs?.find(event => event.fragment.name === 'CuratedListCreated'); // todo not quite getting it
   if (curatedListCreatedEvent) {
-    const curatedListAddress = curatedListCreatedEvent.args?.curatedListAddress;
+    console.log('🎉 CuratedListCreated event found in the transaction receipt.');
+    
+    const curatedListAddress = curatedListCreatedEvent.args[0]
     console.log('🪙 Curated List Collection deployed to:', curatedListAddress);
+
+
+    const a = [    'Curated list test',
+    'CLT',
+    curator,
+    curatedListEncodeMetadata.values[0],]
+  
+    try {
+      await hre.run("verify:verify", {
+        address: curatedListAddress,
+        network: NETWORK,
+        constructorArguments: a,
+        contract: "contracts/CuratedListCollection.sol:CuratedListCollection"
+      });
+      console.log("Contract verified");
+  
+    } catch (error) {
+      console.error("Contract verification failed:", error);
+    }
+
   } else {
     console.log('CuratedListCreated event not found in the transaction receipt.');
   }
+
+
 
 }
 
@@ -104,3 +128,10 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+
+
+
+// todo:
+// - get the address of curated list from the event 
+// - try to verify curated list
+// - debug error when minting curated list
