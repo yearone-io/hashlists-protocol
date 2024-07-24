@@ -128,10 +128,3 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-
-
-
-// todo:
-// - get the address of curated list from the event 
-// - try to verify curated list
-// - debug error when minting curated list
