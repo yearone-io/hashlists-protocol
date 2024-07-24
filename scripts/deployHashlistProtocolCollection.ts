@@ -2,15 +2,17 @@
 import { ethers } from 'hardhat';
 import { ERC725 } from '@erc725/erc725.js';
 import LSP4DigitalAsset from '@erc725/erc725.js/schemas/LSP4DigitalAsset.json';
-import lsp8CollectionMetadata from './metadata/lsp8CollectionMetadata.json';
+import HashlistCollectionMetadata from './metadata/HashlistsCollectionMetadata.json';
+import CuratedListMetadata from './metadata/CuratedListMetadata.json';
 
 const lsp8CollectionMetadataCID =
   'ipfs://QmcwYFhGP7KBo1a4EvbBxuvDf3jQ2bw1dfMEovATRJZetX';
 const { NETWORK } = process.env;
 
+
 async function main() {
   // get LSP8Collection contract factory
-  const LSP8Collection = await ethers.getContractFactory('LSP8ParentCollection');
+  const HashlistProtocolCollection = await ethers.getContractFactory('HashlistProtocolCollection');
 
   // get the deployer address so we can assign ownership to it
   const [deployer] = await ethers.getSigners();
@@ -21,27 +23,21 @@ async function main() {
     {
       keyName: 'LSP4Metadata',
       value: {
-        json: lsp8CollectionMetadata,
+        json: HashlistCollectionMetadata,
         url: lsp8CollectionMetadataCID,
       },
     },
   ]);
 
-  const deploymentArguments = ['MyToken0',  'MT0', deployer.address, 2, encodeMetadata.values[0]];
+  const deploymentArguments = ['LSP8 Parent',  'DAD', deployer.address, 2, encodeMetadata.values[0]];
 
   // deploy LSP8Collection contract
-  const lsp8Collection = await LSP8Collection.deploy(
-    'MyToken0',
-    'MT0',
-    // will be the owner of the LSP8Collection contract
+  const lsp8Collection = await HashlistProtocolCollection.deploy(
+    'Hashlist Protocol Collection',
+    'HPC',
     deployer.address,
-    // lsp4TokenType is address - see https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-4-DigitalAsset-Metadata.md#lsp4tokentype
     2,
-    // encoded metadata
     encodeMetadata.values[0],
-    // {      
-    //   gasLimit: 41_000_000n,
-    // }
   );
 
   // wait until the contract is mined
@@ -55,7 +51,7 @@ async function main() {
         address: lsp8Collection.target,
         network: NETWORK,
         constructorArguments: deploymentArguments,
-        contract: "contracts/LSP8ParentCollection.sol:LSP8ParentCollection"
+        contract: "contracts/HashlistProtocolCollection.sol:HashlistProtocolCollection"
     });
     console.log("Contract verified");
 
@@ -63,6 +59,27 @@ async function main() {
 } catch (error) {
     console.error("Contract verification failed:", error);
 }
+// now we mint
+  // // convert the lsp4TokenMetadata to a verifiable uri
+  const curatedListEncodeMetadata = erc725.encodeData([
+    {
+      keyName: 'LSP4Metadata',
+      value: {
+        json: CuratedListMetadata,
+        url: lsp8CollectionMetadataCID,
+      },
+    },
+  ])
+
+
+const tx = await lsp8Collection.mint(
+  'Curated list test',
+  'CLT',
+  deployer.address,
+  curatedListEncodeMetadata.values[0],
+);
+await tx.wait();
+  console.log('✅ Curated List deployed and protocol NFT minted. Tx:', tx.hash);
 }
 
 main().catch((error) => {
