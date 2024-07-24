@@ -1,21 +1,28 @@
-
 import { ethers } from 'hardhat';
 import { ERC725 } from '@erc725/erc725.js';
 import LSP4DigitalAsset from '@erc725/erc725.js/schemas/LSP4DigitalAsset.json';
 import HashlistCollectionMetadata from './metadata/HashlistsCollectionMetadata.json';
 import CuratedListMetadata from './metadata/CuratedListMetadata.json';
+import { getNetworkAccountsConfig } from '../constants/network';
 
-const lsp8CollectionMetadataCID =
-  'ipfs://QmcwYFhGP7KBo1a4EvbBxuvDf3jQ2bw1dfMEovATRJZetX';
+const lsp8CollectionMetadataCID = 'ipfs://QmcwYFhGP7KBo1a4EvbBxuvDf3jQ2bw1dfMEovATRJZetX';
 const { NETWORK } = process.env;
 
-
 async function main() {
-  // get LSP8Collection contract factory
-  const HashlistProtocolCollection = await ethers.getContractFactory('HashlistProtocolCollection');
+  // Deploy the CuratedListLibrary first
+  const CuratedListLibraryFactory = await ethers.getContractFactory('CuratedListLibrary');
+  const curatedListLibrary = await CuratedListLibraryFactory.deploy();
+  await curatedListLibrary.waitForDeployment();
+  console.log('CuratedListLibrary deployed to:', curatedListLibrary.target);
 
-  // get the deployer address so we can assign ownership to it
-  const [deployer] = await ethers.getSigners();
+  // get LSP8Collection contract factory
+  const HashlistProtocolCollectionFactory = await ethers.getContractFactory('HashlistProtocolCollection', {
+    libraries: {
+      CuratedListLibrary: curatedListLibrary.target,
+    },
+  });
+
+  const curator = getNetworkAccountsConfig(NETWORK as string).UP_ADDR_CONTROLLED_BY_EOA;
 
   // convert the lsp8CollectionMetadata to a verifiable uri
   const erc725 = new ERC725(LSP4DigitalAsset, '', '', {});
@@ -29,13 +36,13 @@ async function main() {
     },
   ]);
 
-  const deploymentArguments = ['Hashlist protocol collection',  'HPC', deployer.address, encodeMetadata.values[0]];
+  const deploymentArguments = ['Hashlist protocol collection', 'HPC', curator, encodeMetadata.values[0]];
 
   // deploy LSP8Collection contract
-  const hashlistContract = await HashlistProtocolCollection.deploy(
+  const hashlistContract = await HashlistProtocolCollectionFactory.deploy(
     'Hashlist Protocol Collection',
     'HPC',
-    deployer.address,
+    curator,
     encodeMetadata.values[0],
   );
 
@@ -44,22 +51,26 @@ async function main() {
 
   // print contract address
   const address = await hashlistContract.getAddress();
-  console.log('LSP8Collection deployed to:', address);
+  console.log('Hashlist Protocol deployed to:', address);
+
   try {
     await hre.run("verify:verify", {
-        address: hashlistContract.target,
-        network: NETWORK,
-        constructorArguments: deploymentArguments,
-        contract: "contracts/HashlistProtocolCollection.sol:HashlistProtocolCollection"
+      address: hashlistContract.target,
+      network: NETWORK,
+      constructorArguments: deploymentArguments,
+      contract: "contracts/HashlistProtocolCollection.sol:HashlistProtocolCollection"
     });
     console.log("Contract verified");
 
-    
-} catch (error) {
+  } catch (error) {
     console.error("Contract verification failed:", error);
-}
-// now we mint
-  // // convert the lsp4TokenMetadata to a verifiable uri
+  }
+
+  ///////////////////////////
+  // 🎨 Minting time 🖼️
+  ///////////////////////////
+  
+  console.log('✨ Minting new NFT...');
   const curatedListEncodeMetadata = erc725.encodeData([
     {
       keyName: 'LSP4Metadata',
@@ -68,17 +79,25 @@ async function main() {
         url: lsp8CollectionMetadataCID,
       },
     },
-  ])
+  ]);
 
+  const tx = await hashlistContract.mint(
+    'Curated list test',
+    'CLT',
+    curator,
+    curatedListEncodeMetadata.values[0],
+  );
+  const receipt = await tx.wait();
+  console.log('✅ Curated List deployed and protocol NFT minted. Tx:', tx.hash);
 
-const tx = await hashlistContract.mint(
-  'Curated list test',
-  'CLT',
-  deployer.address,
-  curatedListEncodeMetadata.values[0],
-);
-await tx.wait();
-console.log('✅ Curated List deployed and protocol NFT minted. Tx:', tx.hash);
+  const curatedListCreatedEvent = receipt.events?.find(event => event.event === 'CuratedListCreated');
+  if (curatedListCreatedEvent) {
+    const curatedListAddress = curatedListCreatedEvent.args?.curatedListAddress;
+    console.log('🪙 Curated List Collection deployed to:', curatedListAddress);
+  } else {
+    console.log('CuratedListCreated event not found in the transaction receipt.');
+  }
+
 }
 
 main().catch((error) => {

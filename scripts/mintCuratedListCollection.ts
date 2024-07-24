@@ -1,7 +1,7 @@
 import { ethers } from 'hardhat';
 
 const curatedListCollectionContract =
-  '0x9066ffa5fAe346Da6972beE99b58592112252AaF';
+  '0xe1c8f59ab3050758194d4ef48ead8e3d098a167a';
 
 async function main() {
   // get LSP8Collection contract
@@ -12,7 +12,10 @@ async function main() {
 
   const addressOfEntryId = '0x1a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f809';
   const tx = await curatedListcontract.mint(
-    addressOfEntryId    
+    addressOfEntryId,
+    {
+      gasLimit: 500000,
+    }
   );
 
   await tx.wait();
