@@ -6,9 +6,11 @@ import {LSP4DigitalAssetMetadata} from "@lukso/lsp-smart-contracts/contracts/LSP
 import {_LSP4_SUPPORTED_STANDARDS_KEY, _LSP4_SUPPORTED_STANDARDS_VALUE, _LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
 import {_LSP8_REFERENCE_CONTRACT} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
-import {LSP8Mintable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol";
+// import {LSP8Mintable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol";
+import {LSP8Enumerable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/extensions/LSP8Enumerable.sol";
+import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol";
 
-contract CuratedListCollection is LSP8Mintable {
+contract CuratedListCollection is LSP8Enumerable {
     constructor(
         string memory name_,
         string memory symbol_,
@@ -16,7 +18,7 @@ contract CuratedListCollection is LSP8Mintable {
         uint256 lsp4TokenType_,
         bytes memory lsp4MetadataURI_
     )
-        LSP8Mintable(
+        LSP8IdentifiableDigitalAsset(
             name_,
             symbol_,
             newOwner_,
@@ -34,7 +36,6 @@ contract CuratedListCollection is LSP8Mintable {
         _setData(_LSP4_METADATA_KEY, lsp4MetadataURI_);
     }
 
-    // todo I don't understand this
     function _setData(
         bytes32 dataKey,
         bytes memory dataValue
@@ -55,5 +56,4 @@ contract CuratedListCollection is LSP8Mintable {
         //     curatorNote
         // );
     }
-    // keep track with enumerable LSP8
 }
