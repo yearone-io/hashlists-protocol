@@ -1,14 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-// modules
-import {CuratedListCollection} from "./CuratedListCollection.sol";
+// Import the library and other modules
+import {CuratedListLibrary} from "./CuratedListLibrary.sol";
 import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol";
-import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 import {_LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
 import {LSP8Enumerable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/extensions/LSP8Enumerable.sol";
 
 contract HashlistProtocolCollection is LSP8Enumerable {
+    // Define the event
+    event CuratedListCreated(address indexed curatedListAddress);
+
     constructor(
         string memory nftProtocolName,
         string memory nftProtocolSymbol,
@@ -32,17 +34,16 @@ contract HashlistProtocolCollection is LSP8Enumerable {
         address curator,
         bytes memory lsp4MetadataURIOfLSP8_
     ) public {
-        CuratedListCollection curatedListAddress = new CuratedListCollection(
+        address curatedListAddress = CuratedListLibrary.deployCuratedList(
             curatedListName,
             curatedListSymbol,
             curator,
             lsp4MetadataURIOfLSP8_
         );
-        _mint(
-            curator,
-            bytes32(uint256(uint160(address(curatedListAddress)))),
-            true,
-            ""
-        );
+
+        // Emit the event with the address of the newly deployed contract
+        emit CuratedListCreated(curatedListAddress);
+
+        _mint(curator, bytes32(uint256(uint160(curatedListAddress))), true, "");
     }
 }
