@@ -13,15 +13,14 @@ contract HashlistProtocolCollection is LSP8Enumerable {
         string memory nftProtocolName,
         string memory nftProtocolSymbol,
         address contractOwner,
-        uint256 lsp4Type,
         bytes memory lsp4MetadataURI_
     )
         LSP8IdentifiableDigitalAsset(
             nftProtocolName,
             nftProtocolSymbol,
             contractOwner,
-            lsp4Type,
-            _LSP8_TOKENID_FORMAT_ADDRESS
+            2, // collection type
+            2 //_LSP8_TOKENID_FORMAT_ADDRESS
         )
     {
         _setData(_LSP4_METADATA_KEY, lsp4MetadataURI_);
@@ -37,7 +36,6 @@ contract HashlistProtocolCollection is LSP8Enumerable {
             curatedListName,
             curatedListSymbol,
             curator,
-            2,
             lsp4MetadataURIOfLSP8_
         );
         _mint(
