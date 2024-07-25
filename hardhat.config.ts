@@ -3,12 +3,27 @@ import "@nomicfoundation/hardhat-verify";
 import "@nomicfoundation/hardhat-toolbox";
 import * as dotenv from 'dotenv';
 import { getNetworkAccountsConfig } from "./constants/network";
+require('hardhat-contract-sizer');
 
 // load env vars
 dotenv.config();
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.12",
+    solidity: {
+      version: "0.8.24",
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200
+        },
+        viaIR: true
+      }
+    },
+    contractSizer: {
+      alphaSort: true,
+      runOnCompile: true,
+      disambiguatePaths: false,
+    },
     // public LUKSO Testnet
     networks: {
       luksoTestnet: {
@@ -25,6 +40,7 @@ const config: HardhatUserConfig = {
     sourcify: {
       enabled: false,
     },
+
     etherscan: {
       // no API is required to verify contracts
       // via the Blockscout instance of LUKSO Testnet
