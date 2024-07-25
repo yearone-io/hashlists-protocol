@@ -7,6 +7,7 @@ import {_LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4Digit
 import {LSP8Enumerable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/extensions/LSP8Enumerable.sol";
 import {_LSP8_REFERENCE_CONTRACT} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol";
+import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 
 contract CuratedListCollection is LSP8Enumerable {
     constructor(
@@ -20,7 +21,7 @@ contract CuratedListCollection is LSP8Enumerable {
             symbol_,
             newOwner_,
             2, // collection type
-            2 //_LSP8_TOKENID_FORMAT_ADDRESS
+            _LSP8_TOKENID_FORMAT_ADDRESS
         )
     {
         _setData(_LSP4_METADATA_KEY, lsp4MetadataURI_);

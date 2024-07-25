@@ -6,6 +6,7 @@ import {CuratedListLibrary} from "./CuratedListLibrary.sol";
 import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol";
 import {_LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
 import {LSP8Enumerable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/extensions/LSP8Enumerable.sol";
+import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 
 contract HashlistProtocolCollection is LSP8Enumerable {
     // Define the event
@@ -22,7 +23,7 @@ contract HashlistProtocolCollection is LSP8Enumerable {
             nftProtocolSymbol,
             contractOwner,
             2, // collection type
-            2 //_LSP8_TOKENID_FORMAT_ADDRESS
+            _LSP8_TOKENID_FORMAT_ADDRESS
         )
     {
         _setData(_LSP4_METADATA_KEY, lsp4MetadataURI_);
