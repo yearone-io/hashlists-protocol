@@ -1,7 +1,7 @@
 import { ethers } from 'hardhat';
 
 const curatedListCollectionContract =
-  '0x54031b6bCb3a6C9a0cceD054A6aD46c28967a819';
+  '0xA9E1F2999Dd7B429E564c64b4c5055FA62b2F8AA';
 
 async function main() {
 
