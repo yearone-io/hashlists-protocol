@@ -15,6 +15,20 @@ async function main() {
   await curatedListLibrary.waitForDeployment();
   console.log('✅ CuratedListLibrary deployed to:', curatedListLibrary.target);
 
+  try {
+    await hre.run("verify:verify", {
+      address: curatedListLibrary.target,
+      network: NETWORK,
+      constructorArguments: [],
+      contract: "contracts/CuratedListLibrary.sol:CuratedListLibrary"
+    });
+    console.log("Contract verified");
+
+  } catch (error) {
+    console.error("Contract verification failed:", error);
+  }
+
+
   // get LSP8Collection contract factory
   const HashlistProtocolCollectionFactory = await ethers.getContractFactory('HashlistProtocolCollection', {
     libraries: {
