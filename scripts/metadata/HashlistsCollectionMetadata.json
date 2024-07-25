@@ -1,0 +1,26 @@
+{
+    "LSP4Metadata": {
+      "name": "Hashlisth Protocol Collection test",
+      "description": "Protocol Collection test description",
+      "links": [
+        {
+          "title": "Website",
+          "url": "https://yearone.io/portfolio/"
+        }
+      ],
+      "icons": [],
+      "images": [
+        {
+          "width": 1024,
+          "height": 974,
+          "url": "ipfs://QmS3jF9jsoG6gnyJ7wCeJ4bej2aJEnPSv527UV8KxjBDAA",
+          "verification": {
+            "method": "keccak256(bytes)",
+            "data": "0xdd6b5fb6dc984fda0222fb6f6e96b471c0667b12f03b1e804f7b5e6ab62acdb0"
+          }
+        }
+      ],
+      "assets": [],
+      "attributes": []
+    }
+  }
