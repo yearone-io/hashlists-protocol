@@ -3,10 +3,16 @@ import "@nomicfoundation/hardhat-verify";
 import "@nomicfoundation/hardhat-toolbox";
 import * as dotenv from 'dotenv';
 import { getNetworkAccountsConfig } from "./constants/network";
+import env from "hardhat";
 require('hardhat-contract-sizer');
 
 // load env vars
 dotenv.config();
+
+const { 
+  ARBISCAN_API_KEY
+ } = process.env;
+
 
 const config: HardhatUserConfig = {
     solidity: {
@@ -55,8 +61,8 @@ const config: HardhatUserConfig = {
       apiKey: {
         luksoTestnet: "no-api-key-needed",
         luksoMain: "no-api-key-needed",
-        arbitrumTestnet: "F6I41K4Z9Q9JPUKPBNE52Z4NXNSJG9FZIX",
-        arbitrumMain: "F6I41K4Z9Q9JPUKPBNE52Z4NXNSJG9FZIX"
+        arbitrumTestnet: ARBISCAN_API_KEY as string,
+        arbitrumMain: ARBISCAN_API_KEY as string,
       },
       customChains: [
         {
