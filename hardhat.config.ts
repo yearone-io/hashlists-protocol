@@ -36,6 +36,16 @@ const config: HardhatUserConfig = {
         chainId: 42,
         accounts: [getNetworkAccountsConfig("luksoMain").EOA_PRIVATE_KEY as string] // your private key here
       },
+      arbitrumMain: {
+        url: "https://arb1.arbitrum.io/rpc",
+        chainId: 42161,
+        accounts: [getNetworkAccountsConfig("arbitrumMain").PRIVATE_KEY as string] // your private key here
+      },
+      arbitrumTestnet: {
+        url: "https://sepolia-rollup.arbitrum.io/rpc",
+        chainId: 421614,
+        accounts: [getNetworkAccountsConfig("arbitrumTestnet").PRIVATE_KEY as string] // your private key here
+      },
     },
     sourcify: {
       enabled: false,
