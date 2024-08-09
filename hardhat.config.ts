@@ -52,9 +52,12 @@ const config: HardhatUserConfig = {
     },
 
     etherscan: {
-      // no API is required to verify contracts
-      // via the Blockscout instance of LUKSO Testnet
-      apiKey: "no-api-key-needed",
+      apiKey: {
+        luksoTestnet: "no-api-key-needed",
+        luksoMain: "no-api-key-needed",
+        arbitrumTestnet: "F6I41K4Z9Q9JPUKPBNE52Z4NXNSJG9FZIX",
+        arbitrumMain: "F6I41K4Z9Q9JPUKPBNE52Z4NXNSJG9FZIX"
+      },
       customChains: [
         {
           network: "luksoTestnet",
@@ -70,6 +73,22 @@ const config: HardhatUserConfig = {
           urls: {
             apiURL: "https://api.explorer.execution.mainnet.lukso.network/api",
             browserURL: "https://explorer.execution.mainnet.lukso.network",
+          },
+        },
+        {
+          network: "arbitrumMain",
+          chainId: 42161,
+          urls: {
+            apiURL: "https://api.arbiscan.io/api",
+            browserURL: "https://arbiscan.io",
+          },
+        },
+        {
+          network: "arbitrumTestnet",
+          chainId: 421614,
+          urls: {
+            browserURL: "https://sepolia.arbiscan.io/",
+            apiURL: "https://api-sepolia.arbiscan.io/api",
           },
         },
       ],
