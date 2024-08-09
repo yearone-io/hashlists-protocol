@@ -36,7 +36,7 @@ async function main() {
     },
   });
 
-  const curator = getNetworkAccountsConfig(NETWORK as string).UP_ADDR_CONTROLLED_BY_EOA;
+  const curator = getNetworkAccountsConfig(NETWORK as string).UP_ADDR_CONTROLLED_BY_EOA || getNetworkAccountsConfig(NETWORK as string).WALLET_ADDRESS;
 
   // convert the lsp8CollectionMetadata to a verifiable uri
   const erc725 = new ERC725(LSP4DigitalAsset, '', '', {});
