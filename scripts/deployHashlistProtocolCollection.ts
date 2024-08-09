@@ -50,7 +50,7 @@ async function main() {
     },
   ]);
 
-  const deploymentArguments = ['Hashlist protocol collection', 'HPC', curator, encodeMetadata.values[0]];
+  const deploymentArguments = ['Hashlist Protocol Collection', 'HPC', curator, encodeMetadata.values[0]];
 
   // deploy LSP8Collection contract
   const hashlistContract = await HashlistProtocolCollectionFactory.deploy(

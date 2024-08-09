@@ -16,6 +16,14 @@ const NETWORKS = {
       EOA_PUBLIC_KEY: "0xF1258b31ADaf74F0886E0952BD50C78DF70a54AD",
       UP_ADDR_CONTROLLED_BY_EOA: "",
   },
+    arbitrumMain: {
+    PRIVATE_KEY: "",
+    WALLET_ADDRESS: ''
+  },
+  arbitrumTestnet: {
+    PRIVATE_KEY: "",
+    WALLET_ADDRESS: ''
+  },
 } as {
   [key: string]: Network;
 };
@@ -26,8 +34,10 @@ export const getNetworkAccountsConfig = (name: string) => {
       return NETWORKS.luksoMain;
     case 'luksoTestnet':
       return NETWORKS.luksoTestnet;
-    case 'luksoDevnet':
-      return NETWORKS.luksoDevnet;
+    case 'arbitrumMain':
+      return NETWORKS.arbitrumMain;
+    case 'arbitrumTestnet':
+      return NETWORKS.arbitrumTestnet;
     default:
       throw new Error(`Unknown network ${name}`);
   }
