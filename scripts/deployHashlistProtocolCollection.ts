@@ -36,7 +36,7 @@ async function main() {
     },
   });
 
-  const curator = getNetworkAccountsConfig(NETWORK as string).UP_ADDR_CONTROLLED_BY_EOA;
+  const curator = getNetworkAccountsConfig(NETWORK as string).UP_ADDR_CONTROLLED_BY_EOA || getNetworkAccountsConfig(NETWORK as string).WALLET_ADDRESS;
 
   // convert the lsp8CollectionMetadata to a verifiable uri
   const erc725 = new ERC725(LSP4DigitalAsset, '', '', {});
@@ -50,7 +50,7 @@ async function main() {
     },
   ]);
 
-  const deploymentArguments = ['Hashlist protocol collection', 'HPC', curator, encodeMetadata.values[0]];
+  const deploymentArguments = ['Hashlist Protocol Collection', 'HPC', curator, encodeMetadata.values[0]];
 
   // deploy LSP8Collection contract
   const hashlistContract = await HashlistProtocolCollectionFactory.deploy(
