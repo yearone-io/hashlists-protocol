@@ -3,10 +3,16 @@ import "@nomicfoundation/hardhat-verify";
 import "@nomicfoundation/hardhat-toolbox";
 import * as dotenv from 'dotenv';
 import { getNetworkAccountsConfig } from "./constants/network";
+import env from "hardhat";
 require('hardhat-contract-sizer');
 
 // load env vars
 dotenv.config();
+
+const { 
+  ARBISCAN_API_KEY
+ } = process.env;
+
 
 const config: HardhatUserConfig = {
     solidity: {
@@ -36,15 +42,28 @@ const config: HardhatUserConfig = {
         chainId: 42,
         accounts: [getNetworkAccountsConfig("luksoMain").EOA_PRIVATE_KEY as string] // your private key here
       },
+      arbitrumMain: {
+        url: "https://arb1.arbitrum.io/rpc",
+        chainId: 42161,
+        accounts: [getNetworkAccountsConfig("arbitrumMain").PRIVATE_KEY as string] // your private key here
+      },
+      arbitrumTestnet: {
+        url: "https://sepolia-rollup.arbitrum.io/rpc",
+        chainId: 421614,
+        accounts: [getNetworkAccountsConfig("arbitrumTestnet").PRIVATE_KEY as string] // your private key here
+      },
     },
     sourcify: {
       enabled: false,
     },
 
     etherscan: {
-      // no API is required to verify contracts
-      // via the Blockscout instance of LUKSO Testnet
-      apiKey: "no-api-key-needed",
+      apiKey: {
+        luksoTestnet: "no-api-key-needed",
+        luksoMain: "no-api-key-needed",
+        arbitrumTestnet: ARBISCAN_API_KEY as string,
+        arbitrumMain: ARBISCAN_API_KEY as string,
+      },
       customChains: [
         {
           network: "luksoTestnet",
@@ -60,6 +79,22 @@ const config: HardhatUserConfig = {
           urls: {
             apiURL: "https://api.explorer.execution.mainnet.lukso.network/api",
             browserURL: "https://explorer.execution.mainnet.lukso.network",
+          },
+        },
+        {
+          network: "arbitrumMain",
+          chainId: 42161,
+          urls: {
+            apiURL: "https://api.arbiscan.io/api",
+            browserURL: "https://arbiscan.io",
+          },
+        },
+        {
+          network: "arbitrumTestnet",
+          chainId: 421614,
+          urls: {
+            browserURL: "https://sepolia.arbiscan.io/",
+            apiURL: "https://api-sepolia.arbiscan.io/api",
           },
         },
       ],
