@@ -7,13 +7,13 @@ library CuratedListLibrary {
         string memory curatedListName,
         string memory curatedListSymbol,
         address curator,
-        bytes memory lsp4MetadataURIOfLSP8_
+        bytes memory lsp4MetadataURIOfLSP8
     ) external returns (address) {
         CuratedListCollection curatedListAddress = new CuratedListCollection(
             curatedListName,
             curatedListSymbol,
             curator,
-            lsp4MetadataURIOfLSP8_
+            lsp4MetadataURIOfLSP8
         );
         return address(curatedListAddress);
     }
