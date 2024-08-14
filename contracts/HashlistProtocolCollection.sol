@@ -33,13 +33,13 @@ contract HashlistProtocolCollection is LSP8Enumerable {
         string memory curatedListName,
         string memory curatedListSymbol,
         address curator,
-        bytes memory lsp4MetadataURIOfLSP8_
+        bytes memory lsp4MetadataURIOfLSP8
     ) public {
         address curatedListAddress = CuratedListLibrary.deployCuratedList(
             curatedListName,
             curatedListSymbol,
             curator,
-            lsp4MetadataURIOfLSP8_
+            lsp4MetadataURIOfLSP8
         );
 
         // Emit the event with the address of the newly deployed contract
