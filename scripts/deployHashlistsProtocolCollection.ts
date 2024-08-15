@@ -30,7 +30,7 @@ async function main() {
 
 
   // get LSP8Collection contract factory
-  const HashlistProtocolCollectionFactory = await ethers.getContractFactory('HashlistProtocolCollection', {
+  const HashlistsProtocolCollectionFactory = await ethers.getContractFactory('HashlistsProtocolCollection', {
     libraries: {
       CuratedListLibrary: curatedListLibrary.target,
     },
@@ -53,7 +53,7 @@ async function main() {
   const deploymentArguments = ['Hashlist Protocol Collection', 'HPC', curator, encodeMetadata.values[0]];
 
   // deploy LSP8Collection contract
-  const hashlistContract = await HashlistProtocolCollectionFactory.deploy(
+  const hashlistsContract = await HashlistsProtocolCollectionFactory.deploy(
     'Hashlist Protocol Collection',
     'HPC',
     curator,
@@ -61,18 +61,18 @@ async function main() {
   );
 
   // wait until the contract is mined
-  await hashlistContract.waitForDeployment();
+  await hashlistsContract.waitForDeployment();
 
   // print contract address
-  const address = await hashlistContract.getAddress();
+  const address = await hashlistsContract.getAddress();
   console.log('✅ Hashlist Protocol deployed to:', address);
 
   try {
     await hre.run("verify:verify", {
-      address: hashlistContract.target,
+      address: hashlistsContract.target,
       network: NETWORK,
       constructorArguments: deploymentArguments,
-      contract: "contracts/HashlistProtocolCollection.sol:HashlistProtocolCollection"
+      contract: "contracts/HashlistsProtocolCollection.sol:HashlistsProtocolCollection"
     });
     console.log("Contract verified");
 
@@ -95,7 +95,7 @@ async function main() {
     },
   ]);
 
-  const tx = await hashlistContract.mint(
+  const tx = await hashlistsContract.mint(
     'Curated list test',
     'CLT',
     curator,
