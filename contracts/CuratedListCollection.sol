@@ -2,29 +2,48 @@
 pragma solidity ^0.8.24;
 
 import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol";
+import {LSP8IdentifiableDigitalAssetCore} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAssetCore.sol";
 import {LSP4DigitalAssetMetadata} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4DigitalAssetMetadata.sol";
-import {_LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
+import {_LSP4_TOKEN_TYPE_COLLECTION, _LSP4_METADATA_KEY, _LSP4_CREATORS_ARRAY_KEY, _LSP4_CREATORS_MAP_KEY_PREFIX} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
 import {LSP8Enumerable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/extensions/LSP8Enumerable.sol";
+import {LSP8Mintable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/LSP8Mintable.sol";
 import {_LSP8_REFERENCE_CONTRACT} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol";
 import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 
-contract CuratedListCollection is LSP8Enumerable {
+contract CuratedListCollection is LSP8Enumerable, LSP8Mintable {
     constructor(
-        string memory name_,
-        string memory symbol_,
-        address newOwner_,
-        bytes memory lsp4MetadataURI_
+        string memory _name,
+        string memory _symbol,
+        address _creator,
+        bytes memory _lsp4MetadataURI
     )
-        LSP8IdentifiableDigitalAsset(
-            name_,
-            symbol_,
-            newOwner_,
-            2, // collection type
+        LSP8Mintable(
+            _name,
+            _symbol,
+            _creator,
+            _LSP4_TOKEN_TYPE_COLLECTION, // collection type
             _LSP8_TOKENID_FORMAT_ADDRESS
         )
     {
-        _setData(_LSP4_METADATA_KEY, lsp4MetadataURI_);
+        _setData(_LSP4_METADATA_KEY, _lsp4MetadataURI);
+        // setting the creator
+        _setData(
+            _LSP4_CREATORS_ARRAY_KEY,
+            hex"00000000000000000000000000000001"
+        );
+        bytes32 creatorIndex = bytes32(bytes16(_LSP4_CREATORS_ARRAY_KEY));
+        _setData(creatorIndex, abi.encodePacked(_creator));
+        _setData(
+            bytes32(
+                abi.encodePacked(
+                    _LSP4_CREATORS_MAP_KEY_PREFIX,
+                    hex"0000",
+                    _creator
+                )
+            ),
+            hex"24871b3d00000000000000000000000000000000"
+        );
     }
 
     function _setData(
@@ -38,8 +57,16 @@ contract CuratedListCollection is LSP8Enumerable {
         LSP4DigitalAssetMetadata._setData(dataKey, dataValue);
     }
 
-    function mint(bytes32 addressOfEntry) public {
-        // todo onlyOwner?
-        _mint(owner(), addressOfEntry, true, "");
+    function mint(bytes32 addressOfEntry) public onlyOwner {
+        LSP8Mintable.mint(owner(), addressOfEntry, true, "");
+    }
+
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        bytes32 tokenId,
+        bytes memory data
+    ) internal virtual override(LSP8Enumerable, LSP8IdentifiableDigitalAssetCore) {
+        LSP8Enumerable._beforeTokenTransfer(from, to, tokenId, data);
     }
 }
