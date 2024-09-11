@@ -4,7 +4,7 @@ pragma solidity ^0.8.24;
 // Import the library and other modules
 import {CuratedListLibrary} from "./CuratedListLibrary.sol";
 import {LSP8IdentifiableDigitalAsset} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8IdentifiableDigitalAsset.sol";
-import {_LSP4_TOKEN_TYPE_COLLECTION, _LSP4_METADATA_KEY} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
+import {_LSP4_TOKEN_TYPE_COLLECTION, _LSP4_METADATA_KEY, _LSP4_CREATORS_ARRAY_KEY, _LSP4_CREATORS_MAP_KEY_PREFIX} from "@lukso/lsp-smart-contracts/contracts/LSP4DigitalAssetMetadata/LSP4Constants.sol";
 import {LSP8Enumerable} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/extensions/LSP8Enumerable.sol";
 import {_LSP8_TOKENID_FORMAT_ADDRESS} from "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/LSP8Constants.sol";
 
@@ -15,8 +15,7 @@ contract HashlistsProtocolCollection is LSP8Enumerable {
     constructor(
         string memory nftProtocolName,
         string memory nftProtocolSymbol,
-        address contractOwner,
-        bytes memory lsp4MetadataURI_
+        address contractOwner
     )
         LSP8IdentifiableDigitalAsset(
             nftProtocolName,
@@ -26,7 +25,22 @@ contract HashlistsProtocolCollection is LSP8Enumerable {
             _LSP8_TOKENID_FORMAT_ADDRESS
         )
     {
-        _setData(_LSP4_METADATA_KEY, lsp4MetadataURI_);
+        _setData(
+            _LSP4_CREATORS_ARRAY_KEY,
+            hex"00000000000000000000000000000001"
+        );
+        bytes32 creatorIndex = bytes32(bytes16(_LSP4_CREATORS_ARRAY_KEY));
+        _setData(creatorIndex, abi.encodePacked(contractOwner));
+        _setData(
+            bytes32(
+                abi.encodePacked(
+                    _LSP4_CREATORS_MAP_KEY_PREFIX,
+                    hex"0000",
+                    contractOwner
+                )
+            ),
+            hex"24871b3d00000000000000000000000000000000"
+        );
     }
 
     function mint(

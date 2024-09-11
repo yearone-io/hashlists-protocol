@@ -1,12 +1,14 @@
-import { ethers } from 'hardhat';
+import hre, { ethers } from 'hardhat';
 import { ERC725 } from '@erc725/erc725.js';
 import LSP4DigitalAsset from '@erc725/erc725.js/schemas/LSP4DigitalAsset.json';
-import HashlistCollectionMetadata from './metadata/HashlistsCollectionMetadata.json';
 import CuratedListMetadata from './metadata/CuratedListMetadata.json';
 import { getNetworkAccountsConfig } from '../constants/network';
 
 const lsp8CollectionMetadataCID = 'ipfs://QmcwYFhGP7KBo1a4EvbBxuvDf3jQ2bw1dfMEovATRJZetX';
-const { NETWORK } = process.env;
+
+const network = hre.network.name;
+console.log('network: ', network);
+const { WALLET_ADDRESS, UP_ADDR_CONTROLLED_BY_EOA } = getNetworkAccountsConfig(network as string);
 
 async function main() {
   // Deploy the CuratedListLibrary first
@@ -18,7 +20,7 @@ async function main() {
   try {
     await hre.run("verify:verify", {
       address: curatedListLibrary.target,
-      network: NETWORK,
+      network,
       constructorArguments: [],
       contract: "contracts/CuratedListLibrary.sol:CuratedListLibrary"
     });
@@ -36,28 +38,19 @@ async function main() {
     },
   });
 
-  const curator = getNetworkAccountsConfig(NETWORK as string).UP_ADDR_CONTROLLED_BY_EOA || getNetworkAccountsConfig(NETWORK as string).WALLET_ADDRESS;
+  const curator = UP_ADDR_CONTROLLED_BY_EOA || WALLET_ADDRESS;
 
   // convert the lsp8CollectionMetadata to a verifiable uri
   const erc725 = new ERC725(LSP4DigitalAsset, '', '', {});
-  const encodeMetadata = erc725.encodeData([
-    {
-      keyName: 'LSP4Metadata',
-      value: {
-        json: HashlistCollectionMetadata,
-        url: lsp8CollectionMetadataCID,
-      },
-    },
-  ]);
 
-  const deploymentArguments = ['Hashlist Protocol Collection', 'HPC', curator, encodeMetadata.values[0]];
+
+  const deploymentArguments = ['Hashlists Curation Protocol', 'HCP', curator];
 
   // deploy LSP8Collection contract
   const hashlistsContract = await HashlistsProtocolCollectionFactory.deploy(
-    'Hashlist Protocol Collection',
-    'HPC',
-    curator,
-    encodeMetadata.values[0],
+    'Hashlists Curation Protocol',
+    'HCP',
+    curator
   );
 
   // wait until the contract is mined
@@ -70,7 +63,7 @@ async function main() {
   try {
     await hre.run("verify:verify", {
       address: hashlistsContract.target,
-      network: NETWORK,
+      network,
       constructorArguments: deploymentArguments,
       contract: "contracts/HashlistsProtocolCollection.sol:HashlistsProtocolCollection"
     });
@@ -81,9 +74,9 @@ async function main() {
   }
 
   ///////////////////////////
-  // 🎨 Minting time 🖼️
+  // 🎨 Optional Minting time 🖼️
   ///////////////////////////
-  
+  return;
   console.log('✨ Minting new NFT...');
   const curatedListEncodeMetadata = erc725.encodeData([
     {

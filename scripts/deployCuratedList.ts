@@ -1,17 +1,21 @@
-import { ethers } from 'hardhat';
-const { NETWORK } = process.env;
+import hre, { ethers } from 'hardhat';
+import { getNetworkAccountsConfig } from '../constants/network';
+
+const network = hre.network.name;
+console.log('network: ', network);
+const { WALLET_ADDRESS, UP_ADDR_CONTROLLED_BY_EOA } = getNetworkAccountsConfig(network as string);
 
 async function main() {
-    const [deployer] = await ethers.getSigners();
+    const deployer = UP_ADDR_CONTROLLED_BY_EOA || WALLET_ADDRESS;
   
-    console.log("Deploying contracts with the account:", deployer.address);
+    console.log("Deploying contracts with the account:", deployer);
   
     const CuratedListCollection = await ethers.getContractFactory("CuratedListCollection");
-    const name = "YourTokenName";
-    const symbol = "YTN";
-    const creator = deployer.address;
+    const name = "TEST";
+    const symbol = "TST";
+    const creator = deployer;
     const lsp4MetadataURI = "0x"; // example: hex"0123456789abcdef"
-  
+    // @ts-ignore
     const curatedListCollection = await CuratedListCollection.deploy(name, symbol, creator, lsp4MetadataURI);
     await curatedListCollection.waitForDeployment();
     console.log('✅ CuratedListCollection deployed to:', curatedListCollection.target);
@@ -19,7 +23,7 @@ async function main() {
     try {
       await hre.run("verify:verify", {
         address: curatedListCollection.target,
-        network: NETWORK,
+        network: network,
         constructorArguments: [name, symbol, creator, lsp4MetadataURI],
         contract: "contracts/CuratedListCollection.sol:CuratedListCollection"
       });
